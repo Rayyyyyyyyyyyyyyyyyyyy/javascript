@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="width: 200px;height: 200px;color: brown;border: 2px solid chartreuse;background-color: chocolate;margin: 20px;" id="main">
+        <h1 id="header">Chapter 1</h1>
+        <p>Javascript Introduction</p>
+    </div>
+    <script>
+        var main = document.getElementById('main')
+        var header = document.getElementById('header')
+        main.style.width = '300px'
+        main.style.height = '100px'
+        header.style.color = '#ccc'
+        header.style.textAlign = 'center'
+        main.style.setProperty('height', '300px')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a id="link" href="https://www.google.com/">Google</a>
+    <script>
+        var link = document.getElementById('link')
+        console.log(link.hasAttribute('test'));
+        console.log(link.hasAttribute('href'));
+        console.log(link.attributes);
+        console.log(link.getAttributeNode('id'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main">
+        <div id="p1">asdas</div>
+        <div id="p2">111</div>
+    </div>
+    <script>
+        var paragraph = document.createElement("p")
+        var node = document.createTextNode("段落三")
+        paragraph.appendChild(node)
+        console.log(paragraph);
+        var element = document.getElementById("main");
+        var firstChild = document.getElementById("p1")
+        element.insertBefore(paragraph, firstChild)
+            // element.appendChild(paragraph);
+    </script>
+</body>
+
+</html>
