@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" name="" id="upload">
+    <img src="" alt="" id="preview" style="width: 200px;height: 200px;">
+    <script>
+        var uplaod = document.getElementById('upload');
+        upload.addEvenListener('change', handleFiles, false);
+
+        function handleFiles() {
+            console.log(this);
+            readURL(this)
+        }
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FilesReader();
+                reader.onload = function(e) {
+                    document.getElementById('preview').scr = e.target.result;
+
+                };
+                reader.readAsDateURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>

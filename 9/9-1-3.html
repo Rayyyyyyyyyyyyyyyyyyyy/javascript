@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+        <button id="myBtn">abcccc</button>
+    </div>
+    <div id="demo"></div>
+</body>
+<script>
+    // 寫法1
+    document.getElementById('myBtn').addEventListener('click', myFunction);
+
+    function myFunction() {
+        document.getElementById('demo').innerHTML = 'Hello world';
+    }
+    // 寫法2
+    document.getElementById('myBtn').addEventListener('click', myFunction1)
+    document.getElementById('myBtn').addEventListener('click', myFunction2)
+
+    function myFunction1() {
+        document.getElementById('demo').innerHTML += 'Function1 runnig'
+    }
+
+    function myFunction2() {
+        document.getElementById('demo').innerHTML += 'Function2 runnig'
+    }
+
+    // 寫法3
+    document.getElementById('myBtn').addEventListener('mouseover', myFunction3)
+    document.getElementById('myBtn').addEventListener('click', myFunction4)
+    document.getElementById('myBtn').addEventListener('mouseout', myFunction5)
+</script>
+
+</html>
