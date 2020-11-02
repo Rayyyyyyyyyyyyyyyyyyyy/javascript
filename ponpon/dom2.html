@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function toggleMenu(number) {
+        var menu = document.getElementById("menu-" + number)
+        menu.classList.toggle("hide")
+
+
+        // if (menu.style.display = "none") { //這裡是藏起來
+        //     menu.style.display = "block"
+        // } else { //這裡是秀出來
+        //     menu.style.display = "none"
+        // }
+
+    }
+</script>
+<style>
+    .hide {
+        display: none;
+    }
+    
+    .box {
+        margin: 20px;
+        background: rgb(236, 136, 136);
+    }
+</style>
+
+<body>
+    <div onclick="toggleMenu(1)" class="box">標題</div>
+    <ul id="menu-1" class="hide">
+        <li>我是1</li>
+        <li>這是2</li>
+        <li>還是3</li>
+
+    </ul>
+    <div onclick="toggleMenu(2)" class="box">標題2</div>
+    <ul id="menu-2" class="hide">
+        <li>我是2-1</li>
+        <li>這是2-2</li>
+        <li>還是2-3</li>
+
+    </ul>
+    <div onclick="toggleMenu(3)" class="box">標題3</div>
+    <ul id="menu-3" class="hide">
+        <li>我是3-1</li>
+        <li>這是3-2</li>
+        <li>還是3-3</li>
+
+    </ul>
+</body>
+
+</html>
