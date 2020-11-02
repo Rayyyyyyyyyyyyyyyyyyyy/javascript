@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // alert(window.screen.width + "x" + window.screen.height)
+    function change() {
+        // window.document.body.innerHTML = "Hello world!!"
+        var spanObj = document.getElementById("change")
+        spanObj.innerHTML = "bad"
+        spanObj.style.color = "red"
+        spanObj.style.fontSize = "40px"
+        spanObj.style.textShadow = "0 -2px 2px #000"
+
+    }
+</script>
+
+<body>
+    <div>
+        Today is a <span id="change">good</span> day. Let's go to movie.
+    </div>
+    <button onclick="change()">change</button>
+</body>
+
+</html>
