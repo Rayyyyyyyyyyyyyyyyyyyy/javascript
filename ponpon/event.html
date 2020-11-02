@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    // function over(element) {
+    //     element.style.color = 'red'
+    // }
+
+    // function out(element) {
+    //     element.style.color = 'black'
+
+    // }
+    // 用Javascript 的程式動態的註冊事件處理器
+
+    function init() {
+        var btn = document.getElementById("btn")
+            //     btn.onclick = function() {
+            //         alert("Clicked!")
+            //     }
+        var handler = function() { //準備一個事件處理器
+            alert('Clicked');
+        }
+        btn.addEventListener("click" /*事件的名稱*/ , handler)
+
+
+    }
+</script>
+
+<body onload="init()">
+    <!-- <button onclick="alert('Clicked')">Click</button>
+    <span onmouseover="over(this)" ; onmouseout="out(this)">Test</span>
+    <div onmouseover="over(this)" ; onmouseout="out(this)">Test2</div> -->
+
+    <button id="btn">test </button>
+</body>
+
+</html>

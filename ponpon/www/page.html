@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+<script>
+    function getData(pageName) {
+        //Ajax :XMLHttpRequest 物件用來和伺服器連線
+        var req = new XMLHttpRequest();
+        req.open("get", 'http://localhost:8080/ponpon/www/' + pageName)
+        req.onload = function() { //事件，偵測連線
+            //連線完成
+            var content = document.getElementById('content')
+            content.innerHTML = this.responseText;
+        }
+        req.send()
+    }
+</script>
+
+<body onload="getData('popular.html')">
+    <div>
+        <span onclick="getData('popular.html')">熱門</span>
+        <span onclick="getData('lastest.html')">最新</span>
+
+    </div>
+    <hr>
+    <div id="content"></div>
+
+</body>
+
+</html>
