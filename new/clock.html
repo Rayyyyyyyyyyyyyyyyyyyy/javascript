@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" name="" id="btn" value="start" onclick="change()">
+    <h1 id="clock"></h1>
+</body>
+<script>
+    var btn = document.getElementById("btn")
+    var clock = document.getElementById("clock")
+    var t = null
+
+    function change() {
+        if (btn.value == "start") {
+            btn.value = "stop";
+            t = window.setInterval("show()", 1000);
+            //壞掉不會跑的時鐘
+        } else {
+            btn.value = "start"
+            window.clearInterval(t)
+
+        }
+
+    }
+
+    function show() {
+        var today = new Date();
+        var theHour = today.getHours();
+        var theMin = today.getMinutes();
+        var theSec = today.getSeconds();
+        clock.innerHTML = theHour + ":" + theMin + ":" + theSec;
+
+    }
+</script>
+
+</html>

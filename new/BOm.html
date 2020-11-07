@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" name="" id="btn">
+
+    <script>
+        console.log("螢幕寬度: " + screen.width);
+        console.log("螢幕高度: " + screen.height);
+        console.log("可用寬度: " + screen.availWidth);
+        console.log("可用高度: " + screen.availHeight);
+        screen.orientation.onchange = function() {
+                console.log("螢幕方向: " + screen.orientation.type);
+                console.log("螢幕旋轉角度: " + screen.orientation.angle);
+
+            }
+            // console.log(screen);
+            // console.log(navigator)
+        if (navigator.onLine) {
+            console.log("連線");
+            console.log(navigator.userAgent);
+        }
+        //http://localhost:8080/new/BOm.html?id=1#book1
+        console.log(location.protocol);
+        console.log(location.host);
+        console.log(location.hostname);
+        console.log(location.port);
+        console.log(location.pathname); ///new/BOm.html
+        console.log(location.search); //?id=1
+        console.log(location.hash); //同頁超連結 #book1
+
+        document.getElementById("btn").onclick = function() {
+            location.href = "fun.html"
+        }
+        location
+    </script>
+</body>
+
+</html>

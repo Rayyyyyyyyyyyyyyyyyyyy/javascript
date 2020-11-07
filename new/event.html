@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <input type="text" name="" id="text1">
+
+    <button onclick="show1()">button 1 </button>
+    <button id="btn">button 2 </button>
+
+    <script>
+        function show1() {
+            alert("Hello word!")
+
+        }
+
+        function show2(abc) {
+            console.log(abc);
+            // alert("Hello word!!!!!!!!!!!!")
+        }
+        // document.getElementById("btn").onclick = show1
+        // document.addEventListener("click".show2)
+
+        // document.getElementById("text1").addEventListener("keypress", function(event) {
+        //     location(event.which)
+        //         //a-z 97-122
+        //         //A-Z 65-90
+        //         //0-90 48-57
+
+        // })
+        document.getElementById("div1").addEventListener('mousedown',
+            function(event) {
+                console.log(event);
+                console.log("螢幕左上角當成原點: " +
+                    event.screenX + "," + event.screenY);
+                console.log("瀏覽器的左上角當成原點: " +
+                    event.clienX + "," + event.clienY);
+                console.log("事件對象的的左上角當成原點: " +
+                    event.offsetX + "," + event.offsetY);
+            })
+    </script>
+</body>
+
+</html>

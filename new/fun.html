@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: burlywood;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="clock"></div>
+    <input type="button" value="on" id="on" onclick="on()">
+    <input type="button" value="off" id="off" onclick="off()">
+
+    <script>
+        function on() {
+            var on = document.getElementById("on")
+            var on = document.getElementById("off")
+            var clock = document.getElementById("clock")
+            clock.style.transform = "rotate(36000deg)"
+            clock.style.transition = "10s"
+
+        }
+
+        function off() {
+            var on = document.getElementById("on")
+            var on = document.getElementById("off")
+            var clock = document.getElementById("clock")
+            clock.style.transform = "rotate(0deg)"
+        }
+    </script>
+</body>
+
+</html>
