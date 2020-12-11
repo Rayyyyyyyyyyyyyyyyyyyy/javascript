@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container" id="test"></div>
+
+    <br>
+    <div class="container" id="test2">
+        <form>
+            <fieldset>
+                <legend>Form check</legend>
+                <div class="col-5 d-flex flex-column">
+                    <label for="">姓名:</label>
+                    <input type="text" id="name" onblur="check()" class="mx-2">
+                    <small class="text-muted" id="answer">
+                        (1.不可以空白，2.至少兩個字以上，3.必須全部都是中文字)
+                    </small>
+                </div>
+                <hr>
+                <div class="col-5 d-flex flex-column">
+                    <label for="">密碼:</label>
+                    <input type="text" class="mx-2" onblur="pwd()" id="pas" placeholder="請輸入密碼">
+                    <small class="text-muted" id="space">
+                        (英文字母大小寫)
+                    </small>
+                </div>
+                <hr>
+                <div class="col-5 d-flex flex-column">
+                    <label for="">日期:</label>
+                    <input type="text" class="mx-2" id="date" placeholder="ex:2000/2/29">
+                    <small class="text-muted">
+                    格式 : 西元年/月/日 yyyy/MM/DD
+                    </small>
+                </div>
+                <hr>
+                <div>
+                    <input type="submit" value="送出">
+                    <input type="reset" value="清除">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <hr>
+
+
+    <div class="d-flex" onmouseover="rate(this,event)">
+        <img src="img/star.gif" title="很爛" />
+        <img src="img/star.gif" title="一般" />
+        <img src="img/star.gif" title="還好" />
+        <img src="img/star.gif" title="好" />
+        <img src="img/star.gif" title="很好" />
+    </div>
+
+
+
+
+
+
+
+    <script>
+        var test = document.getElementById('test')
+        var tbody = test.appendChild(document.createElement('table')).appendChild(document.createElement('tbody'))
+        for (var x = 1; x < 10; x++) {
+            var tr = tbody.appendChild(document.createElement('tr'))
+            for (var y = 1; y < 10; y++) {
+                var xy = x * y
+                tr.appendChild(
+                    document.createElement('td')).innerHTML = x + "*" + y + "=" + x * y
+
+            }
+        }
+
+        function check() {
+            let name = document.getElementById('name').value
+            let answer = document.getElementById('answer')
+            let chinese = /[\u4e00-\u9fa5]{1,}/
+            if (name == "") {
+                alert("請輸入")
+            } else if (chinese.test(name)) {
+                answer.innerHTML = "正確"
+
+            } else {
+                alert('要中文')
+            }
+        }
+
+        function pwd() {
+            let pas = document.getElementById('pas').value
+            let space = document.getElementById('space')
+
+            let paslen = pas.length;
+
+            let regx = /[a-zA-z]{10,15}/
+
+            if (pas == "") {
+                alert("必須輸入密碼")
+            } else if (paslen < 6) {
+                space.innerHTML = "密碼必須六個字以上"
+            } else if (regx.test(pas)) {
+                space.innerHTML = "正確"
+            } else if (!regx.test(pas)) {
+                alert('格式錯誤')
+            }
+
+        }
+
+        function rate(obj, oEvent) {
+            var star = "img/star.gif"
+            var chngstar = "img/chngstar.gif"
+            if (obj.rateFlag) return;
+            var e = oEvent || window.event;
+            var target = e.target || e.srcElement;
+            var imgArray = obj.getElementsByTagName("img");
+            for (var i = 0; i < imgArray.length; i++) {
+                imgArray[i]._num = i;
+                imgArray[i].onclick = function() {
+                    if (obj.rateFlag) return;
+                    obj.rateFlag = true;
+                    alert(this._num + 1);
+                };
+            }
+            if (target.tagName == "IMG") {
+                for (var j = 0; j < imgArray.length; j++) {
+                    if (j <= target._num) {
+                        imgArray[j].src = chngstar;
+                    } else {
+                        imgArray[j].src = star;
+                    }
+                }
+            } else {
+                for (var k = 0; k < imgArray.length; k++) {
+                    imgArray[k].src = star;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

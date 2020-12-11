@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>JS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+</head>
+  <body>  
+
+    <!-- 東西都在script裡面 -->
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    <script>
+        //
+        //
+        //主體
+        let wrapper = document.createElement('div');
+        wrapper.className="container py-1 rounded";
+        wrapper.style.background="rgb(247, 244, 244)";
+        let myName = document.createElement('h1');
+        myName.className = "m-4 pt-3 pl-5";
+        myName.innerText = "ED104 MFEE13 12號 柯政安";
+        document.body.appendChild(myName);
+        document.body.appendChild(wrapper);
+        document.body.style.background = "rgb(163, 160, 160)";
+        let hw = ["hw1","hw2","hw3","hw4","hw5"];
+        for(let i=1;i<=5;i++){
+            hw[i]= document.createElement('div');
+            hw[i].id = "qustion"+i;
+            hw[i].className = "p-5 my-5 flex justify-content-center mx-auto w-75 border border-secondary rounded";
+            wrapper.appendChild(hw[i]);
+        }
+        //
+        //
+        //第一題
+        let nineTable = document.createElement('table');
+        nineTable.className = "table table-bordered text-center table-sm mx-auto";
+        let tableD = [];
+        let tableR = document.createElement('tr');
+        nineTable.appendChild(tableR);
+        for(let i=2;i<=9;++i){
+            tableD[i] = document.createElement('td');
+            for(let j=1;j<=8;j++){
+                tableD[i].innerHTML += i+" * "+j+" = "+(i*j)+"<br>";
+            }
+            tableD[i].innerHTML += i+" * "+"9"+" = "+(i*9)+"<br>";
+            nineTable.appendChild(tableD[i]);
+        }
+        let headText = document.createElement('h2');
+        headText.innerText = "Homework 1";
+        hw[1].appendChild(headText);
+        hw[1].appendChild(nineTable);
+        //
+        //
+        //第二題
+        let theForm = document.createElement('form');
+        theForm.className = "form-group w-75 m-auto";
+        let formFSet = document.createElement('fieldset');
+        formFSet.className = "border border-info rounded";
+        let formLegent = document.createElement('legend');
+        formLegent.className ="w-auto mx-4 px-2";
+        formLegent.innerHTML = "Form Check";
+        let labelName = document.createElement('label');
+        labelName.htmlFor = "name";
+        labelName.innerText = "姓名：";
+        let inputName = document.createElement('input');
+        inputName.className = "form-control w-50 d-inline";
+        inputName.id = "name";
+        inputName.type = "text";
+        inputName.placeholder = "請輸入姓名";
+        inputName.required = true;
+        inputName.setAttribute("onchange","inputCheck(1)");
+        let areaName = document.createElement('span');
+        areaName.className = "ml-3";
+        areaName.id = "span1";
+        let desName = document.createElement('p');
+        desName.innerText = "(1.不可空白 2.至少兩個字以上 3.必須全部為中文字)";
+        desName.className = "text-muted";
+        let labelPass = document.createElement('label');
+        labelPass.htmlFor = "pass";
+        labelPass.innerText = "密碼：";
+        let inputPass = document.createElement('input');
+        inputPass.className = "form-control w-50 d-inline";
+        inputPass.id = "pass";
+        inputPass.type = "password";
+        inputPass.placeholder = "請輸入密碼";
+        inputPass.required = true;
+        inputPass.setAttribute("onchange","inputCheck(2)");
+        let areaPass = document.createElement('span');
+        areaPass.id = "span2";
+        areaPass.className = "ml-3";
+        let desPass = document.createElement('p');
+        desPass.innerText = "(1.不可空白 2.至少6個字且必須包含英文數字、特殊字元)";
+        desPass.className = "text-muted";
+        let labelDate = document.createElement('label');
+        labelDate.htmlFor = "date";
+        labelDate.innerText = "日期：";
+        let inputDate = document.createElement('input');
+        inputDate.className = "form-control w-50 d-inline";
+        inputDate.id = "date";
+        inputDate.type = "text";
+        inputDate.placeholder = "ex: 2000/2/29";
+        inputDate.required = true;
+        inputDate.setAttribute("onchange","inputCheck(3)");
+        let areaDate = document.createElement('span');
+        areaDate.id = "span3";
+        areaDate.className = "ml-3";
+        let desDate = document.createElement('p');
+        desDate.innerText = "(格式：西元年/月/日 yyyy/MM/dd)";
+        desDate.className = "text-muted";
+        let submitBtn = document.createElement('input');
+        submitBtn.type = "submit";
+        submitBtn.className = "col-3 btn btn-info mr-5";
+        let resetBtn = document.createElement('input');
+        resetBtn.type = "reset";
+        resetBtn.className = "col-3 btn btn-info mr-5";
+        let theHr = document.createElement('hr');
+        theHr.className = "w-75";
+        let theHr2 = theHr.cloneNode();
+        let theHr3 = theHr.cloneNode();
+        let formWrap = document.createElement('div');
+        formWrap.className = "w-75 m-auto";
+        let btnWrap = document.createElement('div');
+        btnWrap.className = "w-75 m-auto pb-3 row justify-content-center";
+        theForm.appendChild(formFSet);
+        formFSet.appendChild(formWrap);
+        formFSet.appendChild(formLegent);
+        formWrap.appendChild(labelName);
+        formWrap.appendChild(inputName);
+        formWrap.appendChild(areaName);
+        formWrap.appendChild(desName);
+        formWrap.appendChild(theHr);
+        formWrap.appendChild(labelPass);
+        formWrap.appendChild(inputPass);
+        formWrap.appendChild(areaPass);
+        formWrap.appendChild(desPass);
+        formWrap.appendChild(theHr2);
+        formWrap.appendChild(labelDate);
+        formWrap.appendChild(inputDate);
+        formWrap.appendChild(areaDate);
+        formWrap.appendChild(desDate);
+        formWrap.appendChild(theHr3);
+        btnWrap.appendChild(submitBtn);
+        btnWrap.appendChild(resetBtn);
+        formWrap.appendChild(btnWrap);
+        
+        let headText2 = document.createElement('h2');
+        headText2.innerText = "Homework 2";
+        hw[2].appendChild(headText2);
+        hw[2].appendChild(theForm);
+
+        function inputCheck(target){
+            let chinese = /^[\u4E00-\u9FA5]{2,}/;
+            let pass = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{6,}$/;
+            let targetSpan = document.getElementById('span'+target);
+            let message="";
+            if(target==1){
+                let input = document.getElementById('name');
+                if(input.value!=""){
+                    if(chinese.test(input.value)){
+                        targetSpan.className = "ml-3 text-success";
+                        message="正確";
+                    }else{
+                        targetSpan.className = "ml-3 text-danger";
+                        message="格式錯誤";
+                    }
+                }else{
+                    targetSpan.className = "ml-3 text-danger";
+                    message="不可為空白";
+                }
+            }else if(target==2){
+                let input = document.getElementById('pass');
+                if(input.value!=""){
+                    if(pass.test(input.value)){
+                        targetSpan.className = "ml-3 text-success";
+                        message="正確";
+                    }else{
+                        targetSpan.className = "ml-3 text-danger";
+                        message="格式錯誤";
+                    }
+                }else{
+                    targetSpan.className = "ml-3 text-danger";
+                    message="不可為空白";
+                }
+            }else{
+                let input = document.getElementById('date');
+                if(input.value!=""){
+                    if(isDate(input.value)){
+                        targetSpan.className = "ml-3 text-success";
+                        message="正確";
+                    }else{
+                        targetSpan.className = "ml-3 text-danger";
+                        message="格式錯誤";
+                    }
+                }else{
+                    targetSpan.className = "ml-3 text-danger";
+                    message="不可為空白";
+                }
+            }
+            targetSpan.innerText =message;
+        }
+        //偷來的日期檢查函式
+        function isDate(txtDate){
+            var currVal = txtDate;
+            if(currVal == '')
+                return false;
+            var rxDatePattern = /^(\d{4})(\/|-)(\d{1,2})(\/|-)(\d{1,2})$/; //Declare Regex
+            var dtArray = currVal.match(rxDatePattern); // is format OK?
+            if (dtArray == null) 
+                return false;
+            //Checks for mm/dd/yyyy format.
+            dtMonth = dtArray[3];
+            dtDay= dtArray[5];
+            dtYear = dtArray[1];        
+            if (dtMonth < 1 || dtMonth > 12) 
+                return false;
+            else if (dtDay < 1 || dtDay> 31) 
+                return false;
+            else if ((dtMonth==4 || dtMonth==6 || dtMonth==9 || dtMonth==11) && dtDay ==31) 
+                return false;
+            else if (dtMonth == 2) 
+            {
+                var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+                if (dtDay> 29 || (dtDay ==29 && !isleap)) 
+                        return false;
+            }
+            return true;
+        }
+        //
+        //
+        //
+        //第三題
+        let q3Wrap = document.createElement('div');
+        q3Wrap.className = "w-75 m-auto pb-3";
+        let starWrap = document.createElement('div');
+        starWrap.className = "w-75 m-auto pb-3 d-flex justify-content-around";
+        starWrap.setAttribute("onmouseleave","checkStar(6)");
+        starWrap.id = "starWrap";
+        let beZero = document.createElement('div');
+        beZero.style.width = "20px";
+        beZero.setAttribute("onmouseenter","checkStar(0)");
+        starWrap.appendChild(beZero);
+        let star = [];
+        for(let i=1;i<=5;i++){
+            star[i] = document.createElement('span');
+            star[i].innerText = "★";
+            star[i].style.fontSize = "64px";
+            star[i].style.color = "#8E8E8E";
+            star[i].style.cursor = "default"
+            star[i].id = "star"+i;
+            star[i].setAttribute("onmouseenter","checkStar("+i+")");
+            starWrap.appendChild(star[i]);
+        }
+        let dummyDiv = document.createElement('div');
+        dummyDiv.style.width = "20px";
+        starWrap.appendChild(dummyDiv);
+        let pointView = document.createElement('p');
+        pointView.id = "pointView";
+        pointView.className = "text-center";
+        q3Wrap.appendChild(starWrap);
+        q3Wrap.appendChild(pointView);
+        let headText3 = document.createElement('h2');
+        headText3.innerText = "Homework 3";
+        hw[3].appendChild(headText3);
+        hw[3].appendChild(q3Wrap);
+
+        function checkStar(target){
+            if(target<6){
+                for(let i=1;i<=5;i++){
+                    let star = document.getElementById("star"+i);
+                    if(i<=target){ 
+                        star.style.color = "#EAC100";
+                    }else{
+                        star.style.color = "#8E8E8E";   
+                    }
+                }
+                let pv = document.getElementById('pointView');
+                pv.innerText = "打分中..."+target;
+            }else{
+                let numStar = 0;
+                let collect = document.getElementById('starWrap').children;
+                Array.from(collect).forEach(element => {
+                    if(element.style.color == "rgb(234, 193, 0)"){
+                        numStar++;
+                    }
+                });
+                let pv = document.getElementById('pointView');
+                pv.innerText = "你給"+numStar+"顆星";
+            }
+        }
+        ///
+        ///
+        ///
+        ///第四題
+        let q4Wrap = document.createElement('div');
+        q4Wrap.className = "w-100 m-auto pb-3";
+        let thePicViewer = document.createElement('form');
+        thePicViewer.className = "form-group w-75 m-auto";
+        let viewerFSet = document.createElement('fieldset');
+        viewerFSet.className = "border border-info rounded";
+        let viewerLegent = document.createElement('legend');
+        viewerLegent.className ="w-auto text-center";
+        viewerLegent.innerHTML = "Ads Carousel";
+        viewerLegent.style.textShadow = "3px 7px 4px #555";
+        let dummyPlay = document.createElement('input');
+        dummyPlay.id = "dummyPlay";
+        dummyPlay.type = "hidden";
+        dummyPlay.value = "0";
+        let dummyPicNow = document.createElement('input');
+        dummyPicNow.id = "dummyPicNow";
+        dummyPicNow.type = "hidden";
+        dummyPicNow.value = "1";
+
+        q4Wrap.appendChild(thePicViewer);
+        thePicViewer.appendChild(viewerFSet);
+        viewerFSet.appendChild(viewerLegent);
+        viewerFSet.appendChild(dummyPlay);
+        viewerFSet.appendChild(dummyPicNow);
+
+        let viewHref = document.createElement('a');
+        viewHref.href = "https://www.google.com#";
+        let imgWrap = document.createElement('div');
+        imgWrap.className = "w-75 m-auto overflow-hidden";
+        viewerFSet.appendChild(imgWrap);
+        imgWrap.appendChild(viewHref);
+        viewHref.innerHTML = "<img id='viewImg' class='w-100' src='img/1.jpg'>";
+
+        let viewBtnWrap = document.createElement('div');
+        viewBtnWrap.className = "w-50 m-auto py-2 d-flex justify-content-around";
+
+        let viewBtn = [];
+        for(let i=1;i<=6;i++){
+            viewBtn[i] = document.createElement('input');
+            viewBtn[i].type = "button";
+            viewBtn[i].setAttribute("onclick","changeView("+i+")");
+            viewBtn[i].id = "viewBtn"+i;
+            viewBtn[i].value = i;
+            viewBtn[i].className = "page-link d-inline";
+            viewBtnWrap.appendChild(viewBtn[i]);
+        }
+        viewerFSet.appendChild(viewBtnWrap);
+
+        let controlBtnWrap = document.createElement('div');
+        controlBtnWrap.className = "w-50 m-auto py-2 d-flex justify-content-around";
+        
+        let ctrLeft = document.createElement('input');
+        ctrLeft.type = "button";
+        ctrLeft.setAttribute("onclick","nextLast(-1)");
+        ctrLeft.id = "btnLeft";
+        ctrLeft.value = "<<";
+        ctrLeft.className = "page-link d-inline";
+
+        let ctrPlay = document.createElement('input');
+        ctrPlay.type = "button";
+        ctrPlay.setAttribute("onclick","autoPlay()");
+        ctrPlay.id = "btnPlay";
+        ctrPlay.value = "▲";
+        ctrPlay.style.transform = "rotate(90deg)";
+        ctrPlay.className = "page-link d-inline";
+        
+        let ctrRight = document.createElement('input');
+        ctrRight.type = "button";
+        ctrRight.setAttribute("onclick","nextLast(1)");
+        ctrRight.id = "btnRight";
+        ctrRight.value = ">>";
+        ctrRight.className = "page-link d-inline";
+
+        controlBtnWrap.appendChild(ctrLeft);
+        controlBtnWrap.appendChild(ctrPlay);
+        controlBtnWrap.appendChild(ctrRight);
+
+        viewerFSet.appendChild(controlBtnWrap);
+
+        let headText4 = document.createElement('h2');
+        headText4.innerText = "Homework 4";
+        hw[4].appendChild(headText4);
+        hw[4].appendChild(q4Wrap);
+
+        let autoTimer;
+
+        function changeView(target){
+            let pic = document.getElementById('viewImg');
+            pic.setAttribute("src","img/"+target+".jpg");
+            let now = document.getElementById('dummyPicNow');
+            now.value = target;
+            highLightBtn();
+        }
+
+        function nextLast(step){
+            let nowPlay = document.getElementById('dummyPicNow');
+            let nextPlay = parseFloat(step)+parseFloat(nowPlay.value);
+            if(nextPlay==0){nextPlay=6;}
+            if(nextPlay==7){nextPlay=1;}
+            let pic = document.getElementById('viewImg');
+            pic.setAttribute("src","img/"+nextPlay+".jpg");
+            nowPlay.value = nextPlay;
+            highLightBtn();
+        }
+
+        function autoPlay(){
+            let playSwitch = document.getElementById('dummyPlay');
+            let playBtn = document.getElementById('btnPlay');
+            if(playSwitch.value==0){
+                playSwitch.value=1;
+                playBtn.value = "=";
+                autoTimer =  window.setInterval( ()=>{
+                    let nowPlay = document.getElementById('dummyPicNow');
+                    let nextPlay = parseFloat(nowPlay.value)+1;
+                    if(nextPlay==0){nextPlay=6;}
+                    if(nextPlay==7){nextPlay=1;}
+                    let pic = document.getElementById('viewImg');
+                    pic.setAttribute("src","img/"+nextPlay+".jpg");
+                    nowPlay.value = nextPlay;
+                    highLightBtn();
+                },2000 );
+            }else{
+                playSwitch.value=0;
+                window.clearInterval(autoTimer);
+                playBtn.value = "▲";
+            }
+        }
+
+        function highLightBtn(){
+            let nowPlay = document.getElementById('dummyPicNow');
+            let target;
+            for(let i =1;i<=6;i++){
+                target = document.getElementById('viewBtn'+i);
+                if(i==nowPlay.value){
+                    target.style.background = "#FFFF00";
+                }else{
+                    target.style.background = "none";
+
+                }
+            }
+        }
+        ///
+        ///
+        ///
+        ///第五題
+        let q5Wrap = document.createElement('div');
+        q5Wrap.className = "w-100 m-auto pb-3 row justify-content-around";
+        let selectArea = document.createElement('div');
+        selectArea.className = "col-5";
+        let showArea = document.createElement('div');
+        showArea.className = "col-5";
+        q5Wrap.appendChild(selectArea);
+        q5Wrap.appendChild(showArea);
+        let seclectHead = document.createElement('h4');
+        seclectHead.innerText = "Welcome";
+        let year = document.createElement('select');
+        year.id = "sYear";
+        year.className = "form-control d-inline"
+        year.style.width = "30%";
+        year.setAttribute("onchange","checkLeap(0)");
+        let month = document.createElement('select');
+        month.id = "sMonth";
+        month.className = "form-control  d-inline"
+        month.style.width = "25%";
+        month.setAttribute("onchange","checkLeap(1)");
+        let day = document.createElement('select');
+        day.id = "sDay";
+        day.className = "form-control  d-inline"
+        day.style.width = "25%";
+        day.setAttribute("onchange","checkLeap(1)");
+        let labelDom = [];
+        let textDate = ["年","月","日"];
+        for(let i=0;i<3;i++){
+            labelDom[i]=document.createElement('label');
+            labelDom[i].innerText = textDate[i];
+        }
+        let yearDom = [];
+        for(let i=0;i<=20;i++){
+            yearDom[i]=document.createElement('option');
+            yearDom[i].value = 2000+i;
+            yearDom[i].innerText = 2000+i;
+            year.appendChild(yearDom[i]);
+        }
+        let monthDom = [];
+        for(let i=1;i<=12;i++){
+            monthDom[i]=document.createElement('option');
+            monthDom[i].id = "mOption"+i;
+            monthDom[i].value = i;
+            monthDom[i].innerText = i;
+            month.appendChild(monthDom[i]);
+        }
+        let dayDom = [];
+        for(let i=1;i<=31;i++){
+            dayDom[i]=document.createElement('option');
+            dayDom[i].id = "dOption"+i;
+            dayDom[i].value = i;
+            dayDom[i].innerText = i;
+            day.appendChild(dayDom[i]);
+        }
+        selectArea.appendChild(seclectHead);
+        selectArea.appendChild(year);
+        selectArea.appendChild(labelDom[0]);
+        selectArea.appendChild(month);
+        selectArea.appendChild(labelDom[1]);
+        selectArea.appendChild(day);
+        selectArea.appendChild(labelDom[2]);
+
+        let showHead = document.createElement('h4');
+        showHead.className = "text-white p-1 mb-1";
+        showHead.style.background = "linear-gradient(to bottom, #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%)";
+        showHead.innerText = "Information";
+        let showbody = document.createElement('div');
+        showbody.id = "showbody";
+        showbody.className = "border border-info text-center pt-3";
+        showbody.style.height = "100px";
+        showbody.innerText = "你選擇的日期是 2000 年 1 月 1 日";
+
+        showArea.appendChild(showHead);
+        showArea.appendChild(showbody);
+
+        let headText5 = document.createElement('h2');
+        headText5.innerText = "Homework 5";
+        hw[5].appendChild(headText5);
+        hw[5].appendChild(q5Wrap);
+
+        function checkLeap(isYear){
+            if(isYear==0){
+                let nowMonth = document.getElementById('sMonth');
+                nowMonth.value = "1";
+                let nowDay = document.getElementById('sDay');
+                nowDay.value = "1";
+            }
+            let year = document.getElementById('sYear').value;
+            let month = document.getElementById('sMonth').value;
+            let day = document.getElementById('sDay').value;
+            for(i=1;i<=31;i++){
+                let iniDay = document.getElementById('dOption'+i);
+                iniDay.style.display = "initial";
+            }
+            switch(month){
+                case '2':
+                    if(year%4==0){
+                        if(year%100!=0||year%400==0){
+                            for(i=30;i<=31;i++){
+                            let theDay = document.getElementById('dOption'+i);
+                            theDay.style.display = "none";
+                            }
+                            break;
+                        }else{
+                            for(i=29;i<=31;i++){
+                            let theDay = document.getElementById('dOption'+i);
+                            theDay.style.display = "none";
+                         }
+                         break;
+                        }
+                     }else{
+                         for(i=29;i<=31;i++){
+                            let theDay = document.getElementById('dOption'+i);
+                            theDay.style.display = "none";
+                         }
+                         break;
+                     }
+                case '4':
+                case '6':
+                case '9':
+                    let theDay = document.getElementById('dOption31');
+                    theDay.style.display = "none";
+                    break;
+                default:
+                    break;
+            }
+            let changeText = document.getElementById('showbody');
+            changeText.innerText = "你選擇的日期是 "+year+" 年 "+month+" 月 "+day+" 日 ";
+        }
+    </script>
+</body>
+</html>

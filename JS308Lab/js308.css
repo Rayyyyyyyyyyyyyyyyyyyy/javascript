@@ -1,0 +1,7 @@
+#hw1Table {
+    border: 2px solid black;
+}
+
+table tr td {
+    background-color: rgb(195, 245, 245);
+}
